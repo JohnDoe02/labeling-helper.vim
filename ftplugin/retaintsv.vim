@@ -3,7 +3,7 @@ function! PlayWav()
 	let l:file = split(line)[0]
 
 	" If it is an absolute path, filename can be passed through
-	" Otherwise assume file is given relative to current path
+	" Otherwise recording file is given relative to tsv file
 	if l:file[0] == '/'
 		let l:job = job_start(["/usr/bin/aplay", "-q", l:file])
 	else
