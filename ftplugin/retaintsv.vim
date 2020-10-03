@@ -1,7 +1,14 @@
 function! PlayWav()
-	let line = getline(".")
-	let file = split(line)[0]
-	let job = job_start(["/usr/bin/aplay", "-q", file])
+	let l:line = getline(".")
+	let l:file = split(line)[0]
+
+	" If it is an absolute path, filename can be passed through
+	" Otherwise assume file is given relative to current path
+	if l:file[0] == '/'
+		let l:job = job_start(["/usr/bin/aplay", "-q", l:file])
+	else
+		let l:job = job_start(["/usr/bin/aplay", "-q", expand('%:p:h') . "/" . l:file])
+	endif
 endfunction
 
 function! ToRecognition()
