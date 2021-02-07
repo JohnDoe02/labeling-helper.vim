@@ -35,3 +35,15 @@ function! SetSource(value)
 	call ToSource()
 	execute "normal" "cw" . a:value
 endfunction
+
+" As far as I understand, these should not be autocommands as this whole file
+" is reloaded automatically whenever buffer the FileType event is triggered
+nnoremap <buffer> <leader>pf :call PlayWav()<cr>
+nnoremap <buffer> <leader>tr :call ToRecognition()<cr>
+nnoremap <buffer> <leader>sm :call SetSource("manual")<cr>
+nnoremap <buffer> <leader>sc :call SetQuality("correct")<cr>
+nnoremap <buffer> <leader>sw :call SetQuality("wrong")<cr>
+nnoremap <buffer> <leader>mw :call SetQuality("wrong")<cr>:call SetSource("manual")<cr>
+nnoremap <buffer> <leader>mc :call SetQuality("correct")<cr>:call SetSource("manual")<cr>
+nnoremap <buffer> <leader>rw :call SetQuality("wrong")<cr>:call SetSource("reference")<cr>
+nnoremap <buffer> <leader>rc :call SetQuality("correct")<cr>:call SetSource("reference")<cr>
