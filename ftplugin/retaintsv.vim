@@ -36,6 +36,8 @@ function! SetSource(value)
 	execute "normal" "cw" . a:value
 endfunction
 
+setlocal cursorline
+
 " As far as I understand, these should not be autocommands as this whole file
 " is reloaded automatically whenever buffer the FileType event is triggered
 nnoremap <buffer> <leader>pf :call PlayWav()<cr>
@@ -47,3 +49,4 @@ nnoremap <buffer> <leader>mw :call SetQuality("wrong")<cr>:call SetSource("manua
 nnoremap <buffer> <leader>mc :call SetQuality("correct")<cr>:call SetSource("manual")<cr>
 nnoremap <buffer> <leader>rw :call SetQuality("wrong")<cr>:call SetSource("reference")<cr>
 nnoremap <buffer> <leader>rc :call SetQuality("correct")<cr>:call SetSource("reference")<cr>
+nnoremap <buffer> <leader>ud :w<cr> G
