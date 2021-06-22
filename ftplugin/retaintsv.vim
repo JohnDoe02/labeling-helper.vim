@@ -34,7 +34,8 @@ setlocal cursorline
 " is reloaded automatically whenever buffer the FileType event is triggered
 nnoremap <buffer> <leader>pf :call PlayWav()<cr>
 nnoremap <buffer> <leader>tr :call ToRecognition()<cr>
-nnoremap <buffer> <leader>rw :call SetQuality("wrong")<cr>
-nnoremap <buffer> <leader>rc :call SetQuality("correct")<cr>
-nnoremap <buffer> <leader>ra :call SetQuality("ambiguous")<cr>
+nnoremap <buffer> <leader>mw :call SetQuality("wrong")<cr>
+nnoremap <buffer> <leader>mc :call SetQuality("correct")<cr>
+nnoremap <buffer> <leader>ma :call SetQuality("ambiguous")<cr>
+nnoremap <buffer> <leader>mt :call SetQuality("training")<cr>
 nnoremap <buffer> <leader>ud :w<cr> G
